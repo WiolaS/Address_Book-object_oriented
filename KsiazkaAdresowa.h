@@ -12,9 +12,14 @@ class KsiazkaAdresowa {
 
     vector <Uzytkownik> uzytkownicy;
 
-public:
-    rejestracjaUzytkownika();
+    Uzytkownik podajDaneNowegoUzytkownika();
+    int pobierzIdNowegoUzytkownika();
+    bool czyIstniejeLogin(string login);
+    string wczytajLinie();
 
+public:
+    void rejestracjaUzytkownika();
+    void wypiszWszytskichUzytkownikow();
 
 
 };
