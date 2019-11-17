@@ -9,6 +9,7 @@ int main()
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     return 0;
+
 }
