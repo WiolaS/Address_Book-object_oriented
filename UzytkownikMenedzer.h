@@ -14,8 +14,6 @@ class UzytkownikMenedzer {
 
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
-
 
 
 public:
@@ -23,7 +21,6 @@ public:
     void rejestracjaUzytkownika();
     Uzytkownik podajDaneNowegoUzytkownika();
     void wczytajUzytkownikowZPliku();
-
 
     void wypiszWszystkichUzytkownikow();
 
