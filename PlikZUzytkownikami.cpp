@@ -7,10 +7,6 @@
 
 using namespace std;
 
-PlikZUzytkownikami::PlikZUzytkownikami()
-{
-    nazwaPlikuZUzytkownikami = "Uzytkownicy.txt";
-}
 
 bool PlikZUzytkownikami::czyPlikJestPusty()
 {
