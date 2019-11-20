@@ -14,6 +14,7 @@ int main()
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.wylogujUzytkownika();
 
     return 0;
 
