@@ -4,11 +4,6 @@
 
 using namespace std;
 
-/*KsiazkaAdresowa::KsiazkaAdresowa()
-{
-    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-}*/
-
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenedzer.rejestracjaUzytkownika();
@@ -17,6 +12,19 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
+}
+
+void KsiazkaAdresowa::logowanieUzytkownika()
+{
+    //int idZalogowanego = 0;
+    //idZalogowanego = uzytkownikMenedzer.logowanieUzytkownika();
+    //uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanego);
+    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
+}
+
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
+{
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
 
