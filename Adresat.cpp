@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Adresat.h"
+#include "UzytkownikMenedzer.h"
+#include "MetodyPomocnicze.h"
 
 using namespace std;
 
@@ -8,9 +10,15 @@ using namespace std;
         id = noweId;
     }
 
+    void Adresat::ustawIdUzytkownika(int noweIdUzytkownika) {
+        ///noweIdUzytkownika = UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika();
+        idUzytkownika = noweIdUzytkownika;
+    }
+
     void Adresat::ustawImie (string noweImie) {
         imie = noweImie;
     }
+
     void Adresat::ustawNazwisko (string noweNazwisko) {
         nazwisko = noweNazwisko;
     }
@@ -29,6 +37,9 @@ using namespace std;
         ///gettery
     int Adresat::pobierzId() {
         return id;
+    }
+    int Adresat::pobierzIdUzytkownika() {
+        return idUzytkownika;
     }
     string Adresat::pobierzImie() {
         return imie;

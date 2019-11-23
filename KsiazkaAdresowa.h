@@ -2,17 +2,21 @@
 #define KSIAZKAADRSOWA_H
 #include <iostream>
 #include "UzytkownikMenedzer.h"
+#include "AdresatMenedzer.h"
+#include "AdresatMenedzer.h"
 
 using namespace std;
 
 class KsiazkaAdresowa {
 
-    //int idOstatniegoAdresata;
+
     //int idUsunietegoAdresata;
     UzytkownikMenedzer uzytkownikMenedzer;
+    AdresatMenedzer adresatMenedzer;
+
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer (nazwaPlikuZAdresatami) {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
         uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
     };
@@ -21,6 +25,9 @@ public:
     void wypiszWszystkichUzytkownikow();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
+    void dodajAdresata();
+
+
 
 };
 

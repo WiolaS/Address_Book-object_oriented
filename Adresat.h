@@ -1,11 +1,11 @@
 #ifndef ADRESAT.H
 #define ADRESAT.H
 #include <iostream>
+#include "Adresat.h"
 
 using namespace std;
 
 class Adresat {
-
     int id;
     int idUzytkownika; // przypisaæ w konstruktorze id Uzytkownika
     string imie;
@@ -15,8 +15,10 @@ class Adresat {
     string adres;
 
 public:
+
     ///settery
     void ustawId (int noweId);
+    void ustawIdUzytkownika(int noweIdUzytkownika);
     void ustawImie (string noweImie);
     void ustawNazwisko (string noweNazwisko);
     void ustawNumerTelefonu (string nowyNumerTel);
@@ -25,6 +27,7 @@ public:
 
     ///gettery
     int pobierzId();
+    int pobierzIdUzytkownika();
     string pobierzImie();
     string pobierzNazwisko();
     string pobierzNumerTelefonu();

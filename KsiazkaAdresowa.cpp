@@ -20,6 +20,8 @@ void KsiazkaAdresowa::logowanieUzytkownika()
     //idZalogowanego = uzytkownikMenedzer.logowanieUzytkownika();
     //uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanego);
     uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
+    adresatMenedzer.pobierzIdOstatniegoAdresata();
+
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
@@ -32,6 +34,15 @@ void KsiazkaAdresowa::wylogujUzytkownika()
     cout <<"przed wylogowaniem: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
     uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
     cout <<"po wylogowaniu: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
+}
+
+void KsiazkaAdresowa::dodajAdresata()
+{
+    int idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+    cout <<"idZalogowanegoUzytkownika: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
+    Sleep(2000);
+    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
+
 }
 
 
