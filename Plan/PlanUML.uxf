@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>7</y>
+      <w>231</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>KsiazkaAdresowa
+--
+- uzytkownikMenedzer: UzytkownikMenedzer
+- adresatMenedzer: AdresatMenedzer
+- idZalogowanegoUzytkownika: intiger
+
+--
++ &lt;constructor&gt; KsiazkaAdresowa(): void
++ rejestracjaUzytkownika() void
++ logowanieUzytkownika() void
++ wypiszWszystkichUzytkownikow() void
++ zmianaHaslaZalogowanegoUzytkownika() void
++ wylogujUzytkownika() void
++ dodajAdresata() void
++ wyswietlWszystkichAdresatow() void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>182</y>
+      <w>140</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+--
+- id: intiger
+- login: string
+- haslo: string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>294</y>
+      <w>231</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenedzer
+--
+- idZalogowanegoUzytkownika: intiger
+- uzytkownicy: vector &lt;Uzytkownik&gt;
+- plikZUzytkownikami: PlikZUzytkownikami
+
+--
++ ustawIdZalogowanegoUzytkownika(): intiger
++ pobierzIdZalogowanegoUzytkownika(): intiger
++ rejestracjaUzytkownika(): void
++ podajDaneNowegoUzytkownika(): Uzytkownik
++ wczytajUzytkownikowZPliku(): void
++ logowanieUzytkownika(): intiger
+- pobierzIdNowegoUzytkownika(): intiger
+- czyIstniejeLogin(string login): bool
++ zmianaHaslaZalogowanegoUzytkownika: void
++ wypiszWszystkichUzytkownikow(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>7</x>
+      <y>350</y>
+      <w>259</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>PlikZUzytkownikami
+--
+- nazwaPlikuZUzytkownikami: string
+- uzytkownicy: vector &lt;Uzytkownik&gt;
+
+--
++ &lt;construct&gt; PlikZUzytkownikami()
++ dopiszUzytkownikaDoPliku(): void
++ wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt;
+- pobierzDaneUzytkownika(): Uzytkownik
++ zapiszWszystkichUzytkownikowDoPliku(): void
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>322</x>
+      <y>497</y>
+      <w>378</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+--
++ konwerjsaIntNaString(): string
++ wczytajLinie(): string
++ czyPlikJestPusty: bool
++ zamienPierwszaLitereNaDuzaAPozostaleNaMale(): string
++ zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): string
++ konwersjaStringNaInt(): intiger
++ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(): intiger
++ pobierzLiczbe(): string
++ zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami() string
++ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(): intiger
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>350</y>
+      <w>329</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>PlikZAdresatami
+--
+- nazwaPlikuZUzytkownikami: string
+- adresaci: vector &lt;Adresat&gt; 
+
+--
++ &lt;construct&gt; PlikZAdresatami()
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(): intiger
++ pobierzDaneAdresata(): vector &lt;Adresat&gt; 
++ dopiszAdresataDoPliku() void
++ pobierzAdresatow(): vector &lt;Adresat&gt; 
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>294</y>
+      <w>231</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>AdresatMenedzer
+--
+- adresaci: vector &lt;Adresat&gt; 
+- idOstatniegoAdresata: intiger
+- plikZAdresatami: PlikZAdresatami 
+
+--
++ &lt;constructor&gt; AdresatMenedzer()
++ pobierzAdresatow(): void
++ pobierzIdOstatniegoAdresata(): intiger
++ dodajAdresata(): intiger
++ podajDaneNowegoAdresata(): vector &lt;Adresat&gt;
++ wyswietlWszystkichAdresatow: void
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>518</x>
+      <y>182</y>
+      <w>140</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Adresat
+--
+- id: intiger
+- idUzytkownika: intiger
+- imie: string
+- nazwisko: string
+- numerTelefonu: string
+- email: string
+- adres: string</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
