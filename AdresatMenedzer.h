@@ -2,10 +2,8 @@
 #define ADRESATMEMEDZER_H
 #include <iostream>
 #include <vector>
-#include "Uzytkownik.h"
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
-#include "UzytkownikMenedzer.h"
 
 using namespace std;
 
@@ -14,14 +12,16 @@ class AdresatMenedzer {
     PlikZAdresatami plikZAdresatami;
     int idOstatniegoAdresata;
 
-    public:
+public:
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
     };
 
-    int pobierzIdOstatniegoAdresata();
+    int pobierzIdOstatniegoAdresata(int idZalogowanegoUzytkownika);
     int dodajAdresata(int idZalogowanegoUzytkownika);
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-
+    void wyswietlWszystkichAdresatow();
+    void wyswietlDaneAdresata(Adresat adresat);
+    void pobierzAdresatow();
 
 };
 

@@ -2,34 +2,23 @@
 #include "MetodyPomocnicze.h"
 #include <windows.h>
 #include <fstream>
-#include <vector>
-//#include <cstdlib>
 
 using namespace std;
 
-
-
-
-void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
-{
+void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::app);
 
-    if (plikTekstowy.good() == true)
-    {
+    if (plikTekstowy.good() == true) {
         liniaZDanymiUzytkownika = MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy) == true)
-        {
+        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy) == true) {
             plikTekstowy << liniaZDanymiUzytkownika;
-        }
-        else
-        {
+        } else {
             plikTekstowy << endl << liniaZDanymiUzytkownika ;
         }
-    }
-    else
+    } else
         cout << "Nie udalo sie otworzyc pliku " << nazwaPlikuZUzytkownikami << " i zapisac w nim danych." << endl;
     plikTekstowy.close();
 }
@@ -46,8 +35,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     return liniaZDanymiUzytkownika;
 }*/
 
-vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
-{
+vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
     Uzytkownik uzytkownik;
     fstream plikTekstowy;
     //vector <Uzytkownik> uzytkownicy;
@@ -55,10 +43,8 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
 
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
 
-    if (plikTekstowy.good() == true)
-    {
-        while (getline(plikTekstowy, daneJednegoUzytkownikaOddzielonePionowymiKreskami))
-        {
+    if (plikTekstowy.good() == true) {
+        while (getline(plikTekstowy, daneJednegoUzytkownikaOddzielonePionowymiKreskami)) {
             uzytkownik = pobierzDaneUzytkownika(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
             uzytkownicy.push_back(uzytkownik);
         }
@@ -69,22 +55,16 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
     return uzytkownicy;
 }
 
-Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami)
-{
+Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami) {
     Uzytkownik uzytkownik;
     string pojedynczaDanaUzytkownika = "";
     int numerPojedynczejDanejUzytkownika = 1;
 
-    for (int pozycjaZnaku = 0; pozycjaZnaku < daneJednegoUzytkownikaOddzielonePionowymiKreskami.length(); pozycjaZnaku++)
-    {
-        if (daneJednegoUzytkownikaOddzielonePionowymiKreskami[pozycjaZnaku] != '|')
-        {
+    for (int pozycjaZnaku = 0; pozycjaZnaku < daneJednegoUzytkownikaOddzielonePionowymiKreskami.length(); pozycjaZnaku++) {
+        if (daneJednegoUzytkownikaOddzielonePionowymiKreskami[pozycjaZnaku] != '|') {
             pojedynczaDanaUzytkownika += daneJednegoUzytkownikaOddzielonePionowymiKreskami[pozycjaZnaku];
-        }
-        else
-        {
-            switch(numerPojedynczejDanejUzytkownika)
-            {
+        } else {
+            switch(numerPojedynczejDanejUzytkownika) {
             case 1:
                 uzytkownik.ustawId(atoi(pojedynczaDanaUzytkownika.c_str()));
                 break;
@@ -103,31 +83,23 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
 }
 
 
-void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy)
-{
+void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy) {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
 
-    if (plikTekstowy.good() == true)
-    {
-        for (int i = 0; i < uzytkownicy.size(); i++)
-        {
+    if (plikTekstowy.good() == true) {
+        for (int i = 0; i < uzytkownicy.size(); i++) {
             liniaZDanymiUzytkownika = MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownicy[i]);
 
-            if (i == uzytkownicy.size())
-            {
-               plikTekstowy << liniaZDanymiUzytkownika;
-            }
-            else
-            {
+            if (i == uzytkownicy.size()) {
+                plikTekstowy << liniaZDanymiUzytkownika;
+            } else {
                 plikTekstowy << liniaZDanymiUzytkownika << endl;
             }
             liniaZDanymiUzytkownika = "";
         }
-    }
-    else
-    {
+    } else {
         cout << "Nie mozna otworzyc pliku " << nazwaPlikuZUzytkownikami << endl;
     }
     plikTekstowy.close();

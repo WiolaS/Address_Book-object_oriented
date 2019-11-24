@@ -7,7 +7,7 @@ using namespace std;
 
 class Adresat {
     int id;
-    int idUzytkownika; // przypisaæ w konstruktorze id Uzytkownika
+    int idUzytkownika;
     string imie;
     string nazwisko;
     string numerTelefonu;

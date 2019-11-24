@@ -1,51 +1,36 @@
 #include "KsiazkaAdresowa.h"
-#include <windows.h>
-
 
 using namespace std;
 
-void KsiazkaAdresowa::rejestracjaUzytkownika()
-{
+void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
-{
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
-void KsiazkaAdresowa::logowanieUzytkownika()
-{
-    //int idZalogowanego = 0;
-    //idZalogowanego = uzytkownikMenedzer.logowanieUzytkownika();
-    //uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanego);
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
-    adresatMenedzer.pobierzIdOstatniegoAdresata();
-
+void KsiazkaAdresowa::logowanieUzytkownika() {
+    idZalogowanegoUzytkownika = uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
+    adresatMenedzer.pobierzIdOstatniegoAdresata(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
-{
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-void KsiazkaAdresowa::wylogujUzytkownika()
-{
-    cout <<"przed wylogowaniem: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
-    cout <<"po wylogowaniu: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
+void KsiazkaAdresowa::wylogujUzytkownika() {
+    idZalogowanegoUzytkownika = uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
 }
 
-void KsiazkaAdresowa::dodajAdresata()
-{
-    int idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-    cout <<"idZalogowanegoUzytkownika: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
-    Sleep(2000);
+void KsiazkaAdresowa::dodajAdresata() {
     adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
 
 }
 
-
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
+    adresatMenedzer.wyswietlWszystkichAdresatow();
+}
 
 
 

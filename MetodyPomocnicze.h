@@ -1,7 +1,6 @@
 #ifndef METODYPOMOCNICZE_H
 #define METODYPOMOCNICZE_H
 #include <iostream>
-#include <sstream> //konwersja int na str
 #include "Uzytkownik.h"
 #include "Adresat.h"
 
@@ -19,6 +18,7 @@ public:
     static int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     static string pobierzLiczbe(string tekst, int pozycjaZnaku);
     static string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    static int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
 };
 
 #endif // METODYPOMOCNICZE

@@ -6,8 +6,9 @@
 using namespace std;
 
 //setter
-void UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int idZalogowanegoU) {
+int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int idZalogowanegoU) {
     idZalogowanegoUzytkownika = idZalogowanegoU;
+    return idZalogowanegoUzytkownika;
 }
 
 ///getter
@@ -15,8 +16,7 @@ int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
     return idZalogowanegoUzytkownika;
 }
 
-void UzytkownikMenedzer::rejestracjaUzytkownika()
-{
+void UzytkownikMenedzer::rejestracjaUzytkownika() {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
@@ -36,8 +36,7 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
 
 }
 
-Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
-{
+Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
     Uzytkownik uzytkownik;
 
     //uzytkownik.id = pobierzIdNowegoUzytkownika();   tak by³o
@@ -45,8 +44,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 
 
     string login;
-    do
-    {
+    do {
         cout << "Podaj login: ";
         ///uzytkownik.login = wczytajLinie();
         login = MetodyPomocnicze::wczytajLinie();
@@ -61,8 +59,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 
     return uzytkownik;
 }
-int UzytkownikMenedzer::pobierzIdNowegoUzytkownika()
-{
+int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
     if (uzytkownicy.empty() == true)
         return 1;
     else
@@ -70,27 +67,24 @@ int UzytkownikMenedzer::pobierzIdNowegoUzytkownika()
         return uzytkownicy.back().pobierzId() + 1;
 }
 
-bool UzytkownikMenedzer::czyIstniejeLogin(string login)
-{
+bool UzytkownikMenedzer::czyIstniejeLogin(string login) {
     for (int i = 0; i < uzytkownicy.size(); i++) {
         if (uzytkownicy[i].pobierzLogin() == login) {
-           cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
+            cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
             return true;
         }
     }
     return false;
 }
 
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
-{
+void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
 
 
 
-int UzytkownikMenedzer::logowanieUzytkownika()
-{
+int UzytkownikMenedzer::logowanieUzytkownika() {
     Uzytkownik uzytkownik;
     string login = "", haslo = "";
 
@@ -99,17 +93,13 @@ int UzytkownikMenedzer::logowanieUzytkownika()
 
     //vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     int i = 0;
-    while (i < uzytkownicy.size())
-    {
-        if (uzytkownicy[i].pobierzLogin() == login)
-        {
-            for (int iloscProb = 3; iloscProb > 0; iloscProb--)
-            {
+    while (i < uzytkownicy.size()) {
+        if (uzytkownicy[i].pobierzLogin() == login) {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--) {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
                 haslo = MetodyPomocnicze::wczytajLinie();
 
-                if (uzytkownicy[i].pobierzHaslo() == haslo)
-                {
+                if (uzytkownicy[i].pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     return uzytkownicy[i].pobierzId();
@@ -127,21 +117,18 @@ int UzytkownikMenedzer::logowanieUzytkownika()
 }
 
 
-void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
-{
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
     noweHaslo = MetodyPomocnicze::wczytajLinie();
 
-    for (int i = 0; i < uzytkownicy.size(); i++)
-    {
-        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
-        {
+    for (int i = 0; i < uzytkownicy.size(); i++) {
+        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika) {
             uzytkownicy[i].ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }
     }
-   plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 

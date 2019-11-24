@@ -2,7 +2,6 @@
 #define PLIKZUZYTKOWNIKAMI_H
 #include <iostream>
 #include <vector>
-#include <fstream>
 #include "Uzytkownik.h"
 
 using namespace std;
