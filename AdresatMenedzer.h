@@ -18,10 +18,11 @@ class AdresatMenedzer {
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
     };
 
-    int pobierzIdOstatniegoAdresata();
+    int pobierzIdOstatniegoAdresata(int idZalogowanegoUzytkownika);
     int dodajAdresata(int idZalogowanegoUzytkownika);
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-
+    void wyswietlWszystkieKontakty();
+    void pobierzAdresatow();
 
 };
 

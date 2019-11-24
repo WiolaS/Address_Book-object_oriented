@@ -18,10 +18,9 @@ class UzytkownikMenedzer {
 
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
-        //idZalogowanegoUzytkownika = 0;
     };
 
-    void ustawIdZalogowanegoUzytkownika (int idZalogowanegoU);
+    int ustawIdZalogowanegoUzytkownika (int idZalogowanegoU);
     int pobierzIdZalogowanegoUzytkownika();
     void rejestracjaUzytkownika();
     Uzytkownik podajDaneNowegoUzytkownika();

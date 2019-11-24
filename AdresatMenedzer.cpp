@@ -9,16 +9,15 @@
 using namespace std;
 
 
-int AdresatMenedzer::pobierzIdOstatniegoAdresata() {
-    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+int AdresatMenedzer::pobierzIdOstatniegoAdresata(int idZalogowanegoUzytkownika) {
+    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    adresaci = plikZAdresatami.pobierzAdresatow();
     return idOstatniegoAdresata;
 }
 
 int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
-    pobierzIdOstatniegoAdresata();
-
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
     adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
@@ -55,5 +54,13 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, 
     return adresat;
 }
 
+void AdresatMenedzer::wyswietlWszystkieKontakty(){
+    plikZAdresatami.wyswietlWszystkichAdresatow(adresaci);
+
+}
+
+/*void AdresatMenedzer::pobierzAdresatow() {
+    adresaci = plikZAdresatami.pobierzAdresatow();
+}*/
 
 

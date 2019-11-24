@@ -6,8 +6,9 @@
 using namespace std;
 
 //setter
-void UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int idZalogowanegoU) {
+int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int idZalogowanegoU) {
     idZalogowanegoUzytkownika = idZalogowanegoU;
+    return idZalogowanegoUzytkownika;
 }
 
 ///getter

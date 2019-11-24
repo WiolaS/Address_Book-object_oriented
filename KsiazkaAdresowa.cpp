@@ -16,12 +16,8 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
-    //int idZalogowanego = 0;
-    //idZalogowanego = uzytkownikMenedzer.logowanieUzytkownika();
-    //uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanego);
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
-    adresatMenedzer.pobierzIdOstatniegoAdresata();
-
+    idZalogowanegoUzytkownika = uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
+    adresatMenedzer.pobierzIdOstatniegoAdresata(idZalogowanegoUzytkownika);
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
@@ -32,20 +28,23 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
     cout <<"przed wylogowaniem: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
+    idZalogowanegoUzytkownika = uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
     cout <<"po wylogowaniu: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
 }
 
 void KsiazkaAdresowa::dodajAdresata()
 {
-    int idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-    cout <<"idZalogowanegoUzytkownika: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
+
+    cout <<"idZalogowanegoUzytkownika: " << idZalogowanegoUzytkownika << endl;
     Sleep(2000);
     adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
 
 }
 
+void KsiazkaAdresowa::wyswietlWszystkieKontakty(){
+    adresatMenedzer.wyswietlWszystkieKontakty();
 
+}
 
 
 

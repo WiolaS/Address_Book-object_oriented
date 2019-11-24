@@ -19,10 +19,13 @@ public:
     };
 
 
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     void dopiszAdresataDoPliku(Adresat adresat);
+    void wyswietlWszystkichAdresatow(vector <Adresat> adresaci);
+    void wyswietlDaneAdresata(Adresat adresat);
+    vector <Adresat> pobierzAdresatow();
 
 };
 

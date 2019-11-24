@@ -1,6 +1,7 @@
 #include "PlikZAdresatami.h"
 #include "MetodyPomocnicze.h"
 #include "UzytkownikMenedzer.h"
+#include "AdresatMenedzer.h"
 #include "Adresat.h"
 #include <windows.h>
 #include <fstream>
@@ -11,10 +12,9 @@ using namespace std;
 
 
 
-int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
-    int idZalogowanegoUzytkownika = 1;
     int idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
@@ -127,6 +127,39 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     system("pause");
 }
 
+void PlikZAdresatami::wyswietlWszystkichAdresatow(vector <Adresat> adresaci)
+{
+    system("cls");
+    if (!adresaci.empty())
+    {
+        cout << "             >>> ADRESACI <<<" << endl;
+        cout << "-----------------------------------------------" << endl;
+        for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+        {
+            wyswietlDaneAdresata(*itr);
+        }
+        cout << endl;
+    }
+    else
+    {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
+    }
+    system("pause");
+}
+
+void PlikZAdresatami::wyswietlDaneAdresata(Adresat adresat)
+{
+    cout << endl << "Id:                 " << adresat.pobierzId() << endl;
+    cout << "Imie:               " << adresat.pobierzImie() << endl;
+    cout << "Nazwisko:           " << adresat.pobierzNazwisko() << endl;
+    cout << "Numer telefonu:     " << adresat.pobierzNumerTelefonu() << endl;
+    cout << "Email:              " << adresat.pobierzEmail() << endl;
+    cout << "Adres:              " << adresat.pobierzAdres() << endl;
+}
+
+vector <Adresat> PlikZAdresatami::pobierzAdresatow() {
+        return adresaci;
+    }
 
 
 
