@@ -6,23 +6,20 @@
 
 using namespace std;
 
-string MetodyPomocnicze::wczytajLinie()
-{
+string MetodyPomocnicze::wczytajLinie() {
     string wejscie = "";
     getline(cin, wejscie);
     return wejscie;
 }
 
-string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
-{
+string MetodyPomocnicze::konwerjsaIntNaString(int liczba) {
     ostringstream ss;
     ss << liczba;
     string str = ss.str();
     return str;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
-{
+bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy) {
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
@@ -30,18 +27,15 @@ bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
         return false;
 }
 
-string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
-{
-    if (!tekst.empty())
-    {
+string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) {
+    if (!tekst.empty()) {
         transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
         tekst[0] = toupper(tekst[0]);
     }
     return tekst;
 }
 
-string MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
-{
+string MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
     string liniaZDanymiUzytkownika = "";
     MetodyPomocnicze metodyPomocnicze;
 
@@ -52,8 +46,7 @@ string MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiK
     return liniaZDanymiUzytkownika;
 }
 
-int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
-{
+int MetodyPomocnicze::konwersjaStringNaInt(string liczba) {
     int liczbaInt;
     istringstream iss(liczba);
     iss >> liczbaInt;
@@ -61,19 +54,16 @@ int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
     return liczbaInt;
 }
 
-int MetodyPomocnicze::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
-{
+int MetodyPomocnicze::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
     int idUzytkownika = konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
 
     return idUzytkownika;
 }
 
-string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku)
-{
+string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku) {
     string liczba = "";
-    while(isdigit(tekst[pozycjaZnaku]) == true)
-    {
+    while(isdigit(tekst[pozycjaZnaku]) == true) {
         liczba += tekst[pozycjaZnaku];
         pozycjaZnaku ++;
     }
@@ -81,8 +71,7 @@ string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku)
 }
 
 
-string MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
-{
+string MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) {
     string liniaZDanymiAdresata = "";
 
     liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzId()) + '|';
@@ -94,4 +83,10 @@ string MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKr
     liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
 
     return liniaZDanymiAdresata;
+}
+
+int MetodyPomocnicze::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {
+    int pozycjaRozpoczeciaIdAdresata = 0;
+    int idAdresata = konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
+    return idAdresata;
 }

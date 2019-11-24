@@ -1,49 +1,35 @@
 #include "KsiazkaAdresowa.h"
-#include <windows.h>
-
 
 using namespace std;
 
-void KsiazkaAdresowa::rejestracjaUzytkownika()
-{
+void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
-{
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
-void KsiazkaAdresowa::logowanieUzytkownika()
-{
+void KsiazkaAdresowa::logowanieUzytkownika() {
     idZalogowanegoUzytkownika = uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
     adresatMenedzer.pobierzIdOstatniegoAdresata(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
-{
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-void KsiazkaAdresowa::wylogujUzytkownika()
-{
-    cout <<"przed wylogowaniem: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
+void KsiazkaAdresowa::wylogujUzytkownika() {
     idZalogowanegoUzytkownika = uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika(0);
-    cout <<"po wylogowaniu: " << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika() << endl;
 }
 
-void KsiazkaAdresowa::dodajAdresata()
-{
-
-    cout <<"idZalogowanegoUzytkownika: " << idZalogowanegoUzytkownika << endl;
-    Sleep(2000);
+void KsiazkaAdresowa::dodajAdresata() {
     adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
 
 }
 
-void KsiazkaAdresowa::wyswietlWszystkieKontakty(){
-    adresatMenedzer.wyswietlWszystkieKontakty();
-
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
+    adresatMenedzer.wyswietlWszystkichAdresatow();
 }
 
 
