@@ -15,15 +15,24 @@ class Adresat {
     string adres;
 
 public:
+    Adresat(int id = 0, int idUzytkownika = 0, string imie = "", string nazwisko = "", string numerTelefonu = "", string email = "", string adres = "") {
+        this->id  = id;
+        this->idUzytkownika = idUzytkownika;
+        this->imie = imie;
+        this->nazwisko = nazwisko;
+        this->numerTelefonu = numerTelefonu;
+        this->email = email;
+        this->adres = adres;
+    }
 
     ///settery
-    void ustawId (int noweId);
-    void ustawIdUzytkownika(int noweIdUzytkownika);
-    void ustawImie (string noweImie);
-    void ustawNazwisko (string noweNazwisko);
-    void ustawNumerTelefonu (string nowyNumerTel);
-    void ustawEmail (string nowyEmail);
-    void ustawAdres (string nowyAdres);
+    void ustawId (int id);
+    void ustawIdUzytkownika(int idUzytkownika);
+    void ustawImie (string imie);
+    void ustawNazwisko (string nazwisko);
+    void ustawNumerTelefonu (string numerTelefonu);
+    void ustawEmail (string email);
+    void ustawAdres (string adres);
 
     ///gettery
     int pobierzId();

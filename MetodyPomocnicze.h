@@ -19,6 +19,9 @@ public:
     static string pobierzLiczbe(string tekst, int pozycjaZnaku);
     static string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     static int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    static char wybierzOpcjeZMenuGlownego();
+    static char wybierzOpcjeZMenuUzytkownika();
+    static char wczytajZnak();
 };
 
 #endif // METODYPOMOCNICZE

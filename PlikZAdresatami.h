@@ -10,14 +10,20 @@ using namespace std;
 class PlikZAdresatami {
 
     vector <Adresat> adresaci;
-    const string nazwaPlikuZAdresatami;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
+    int idOstatniegoAdresata;
 
 
 public:
-    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+        idOstatniegoAdresata = 0;
+    };
+
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-    void dopiszAdresataDoPliku(Adresat adresat);
+    bool dopiszAdresataDoPliku(Adresat adresat);
+    int pobierzIdOstatniegoAdresata();
+
     vector <Adresat> pobierzAdresatow();
 
 };

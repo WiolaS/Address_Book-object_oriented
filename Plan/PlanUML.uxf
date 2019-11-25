@@ -61,7 +61,6 @@
 + pobierzIdZalogowanegoUzytkownika(): intiger
 + rejestracjaUzytkownika(): void
 + podajDaneNowegoUzytkownika(): Uzytkownik
-+ wczytajUzytkownikowZPliku(): void
 + logowanieUzytkownika(): intiger
 - pobierzIdNowegoUzytkownika(): intiger
 - czyIstniejeLogin(string login): bool
