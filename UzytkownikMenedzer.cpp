@@ -5,13 +5,6 @@
 
 using namespace std;
 
-//setter
-/*int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int idZalogowanegoU) {
-    idZalogowanegoUzytkownika = idZalogowanegoU;
-    return idZalogowanegoUzytkownika;
-}*/
-
-
 
 void UzytkownikMenedzer::rejestracjaUzytkownika() {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();

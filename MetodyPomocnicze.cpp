@@ -19,13 +19,7 @@ string MetodyPomocnicze::konwerjsaIntNaString(int liczba) {
     return str;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy) {
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
+
 
 string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst) {
     if (!tekst.empty()) {
@@ -35,16 +29,7 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
     return tekst;
 }
 
-string MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
-    string liniaZDanymiUzytkownika = "";
-    MetodyPomocnicze metodyPomocnicze;
 
-    liniaZDanymiUzytkownika += metodyPomocnicze.konwerjsaIntNaString(uzytkownik.pobierzId())+ '|';
-    liniaZDanymiUzytkownika += uzytkownik.pobierzLogin() + '|';
-    liniaZDanymiUzytkownika += uzytkownik.pobierzHaslo() + '|';
-
-    return liniaZDanymiUzytkownika;
-}
 
 int MetodyPomocnicze::konwersjaStringNaInt(string liczba) {
     int liczbaInt;
@@ -52,43 +37,6 @@ int MetodyPomocnicze::konwersjaStringNaInt(string liczba) {
     iss >> liczbaInt;
 
     return liczbaInt;
-}
-
-int MetodyPomocnicze::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {
-    int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
-    int idUzytkownika = konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
-
-    return idUzytkownika;
-}
-
-string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku) {
-    string liczba = "";
-    while(isdigit(tekst[pozycjaZnaku]) == true) {
-        liczba += tekst[pozycjaZnaku];
-        pozycjaZnaku ++;
-    }
-    return liczba;
-}
-
-
-string MetodyPomocnicze::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) {
-    string liniaZDanymiAdresata = "";
-
-    liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzId()) + '|';
-    liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
-    liniaZDanymiAdresata += adresat.pobierzImie() + '|';
-    liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
-    liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
-    liniaZDanymiAdresata += adresat.pobierzEmail() + '|';
-    liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
-
-    return liniaZDanymiAdresata;
-}
-
-int MetodyPomocnicze::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {
-    int pozycjaRozpoczeciaIdAdresata = 0;
-    int idAdresata = konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
-    return idAdresata;
 }
 
 char MetodyPomocnicze::wczytajZnak()
@@ -108,6 +56,14 @@ char MetodyPomocnicze::wczytajZnak()
         cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
     }
     return znak;
+}
+
+bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy) {
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
 }
 
 

@@ -11,7 +11,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::app);
 
     if (plikTekstowy.good() == true) {
-        liniaZDanymiUzytkownika = MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
+        liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
         if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy) == true) {
             plikTekstowy << liniaZDanymiUzytkownika;
@@ -23,7 +23,19 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     plikTekstowy.close();
 }
 
+string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik) {
+    string liniaZDanymiUzytkownika = "";
+    MetodyPomocnicze metodyPomocnicze;
+
+    liniaZDanymiUzytkownika += metodyPomocnicze.konwerjsaIntNaString(uzytkownik.pobierzId())+ '|';
+    liniaZDanymiUzytkownika += uzytkownik.pobierzLogin() + '|';
+    liniaZDanymiUzytkownika += uzytkownik.pobierzHaslo() + '|';
+
+    return liniaZDanymiUzytkownika;
+}
+
 vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
+    vector <Uzytkownik> uzytkownicy;
     Uzytkownik uzytkownik;
     fstream plikTekstowy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
@@ -77,7 +89,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
 
     if (plikTekstowy.good() == true) {
         for (int i = 0; i < uzytkownicy.size(); i++) {
-            liniaZDanymiUzytkownika = MetodyPomocnicze::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownicy[i]);
+            liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownicy[i]);
 
             if (i == uzytkownicy.size()) {
                 plikTekstowy << liniaZDanymiUzytkownika;
