@@ -8,10 +8,10 @@ using namespace std;
 
 class PlikZUzytkownikami {
 
-    vector <Uzytkownik> uzytkownicy;
     const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
 
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
 
 public:
     PlikZUzytkownikami(string nazwaPlikuZUzytkownikami) : NAZWA_PLIKU_Z_UZYTKOWNIKAMI(nazwaPlikuZUzytkownikami) {};
