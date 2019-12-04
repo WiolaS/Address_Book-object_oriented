@@ -28,7 +28,7 @@ public:
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     bool dopiszAdresataDoPliku(Adresat adresat);
     int pobierzIdOstatniegoAdresata();
-    void usunZPlikuWybranegoAdresata (Adresat usuwanyAdresat);
+    void edytujLubUsunZPlikuWybranegoAdresata (Adresat usuwanyAdresat, Adresat edytowanyAdresat);
     void zapiszDoPlikuTymczasowiAdresaci (string liniaZDanymiAdresata);
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);

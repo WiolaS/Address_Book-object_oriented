@@ -51,13 +51,14 @@ bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
 void KsiazkaAdresowa::usunAdresata() {
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
         adresatMenedzer->usunAdresata();
-    } else {
-    cout << "Aby dodac adresata, nalezy najpierw sie zalogowac" << endl;
-    system("pause");
     }
 }
 
-
+void KsiazkaAdresowa::edytujAdresata() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer->edytujAdresata();
+    }
+}
 
 
 
