@@ -33,6 +33,7 @@ public:
     void wyswietlWszystkichAdresatow();
     bool czyUzytkownikJestZalogowany();
     void usunAdresata();
+    void edytujAdresata();
 };
 
 #endif // KSIAZKAADRSOWA

@@ -135,8 +135,9 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata() {
 }
 
 
-void PlikZAdresatami::usunZPlikuWybranegoAdresata (Adresat usuwanyAdresat) {
+void PlikZAdresatami::edytujLubUsunZPlikuWybranegoAdresata (Adresat usuwanyAdresat, Adresat edytowanyAdresat) {
     Adresat pobieranyZPlikuAdresat;
+    string liniaZDanymiEdytowanegoAdresata = "";
     fstream odczytywanyPlikTekstowy;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
@@ -146,9 +147,20 @@ void PlikZAdresatami::usunZPlikuWybranegoAdresata (Adresat usuwanyAdresat) {
 
             pobieranyZPlikuAdresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
 
-            if (pobieranyZPlikuAdresat.pobierzId() != usuwanyAdresat.pobierzId()) {
-                zapiszDoPlikuTymczasowiAdresaci (daneJednegoAdresataOddzielonePionowymiKreskami);
-                idOstatniegoAdresata = pobieranyZPlikuAdresat.pobierzId();
+           if (usuwanyAdresat.pobierzId() != 0 && edytowanyAdresat.pobierzId() == 0) {
+                if (pobieranyZPlikuAdresat.pobierzId() != usuwanyAdresat.pobierzId()) {
+                    zapiszDoPlikuTymczasowiAdresaci(daneJednegoAdresataOddzielonePionowymiKreskami);
+                    idOstatniegoAdresata = pobieranyZPlikuAdresat.pobierzId();
+                }
+            } else if (usuwanyAdresat.pobierzId() == 0 && edytowanyAdresat.pobierzId() != 0) {
+                 if (pobieranyZPlikuAdresat.pobierzId() != edytowanyAdresat.pobierzId()) {
+                    zapiszDoPlikuTymczasowiAdresaci (daneJednegoAdresataOddzielonePionowymiKreskami);
+                } else {
+                    liniaZDanymiEdytowanegoAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(edytowanyAdresat);
+                    zapiszDoPlikuTymczasowiAdresaci (liniaZDanymiEdytowanegoAdresata);
+                }
+
+
             }
         }
 
