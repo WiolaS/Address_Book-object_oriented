@@ -18,6 +18,7 @@ public:
 
     static char wybierzOpcjeZMenuGlownego();
     static char wybierzOpcjeZMenuUzytkownika();
+    static int wczytajLiczbeCalkowita();
 
 };
 
