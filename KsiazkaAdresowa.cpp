@@ -60,7 +60,17 @@ void KsiazkaAdresowa::edytujAdresata() {
     }
 }
 
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer->wyszukajAdresatowPoImieniu();
+    }
+}
 
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku() {
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer->wyszukajAdresatowPoNazwisku();
+    }
+}
 
 
 

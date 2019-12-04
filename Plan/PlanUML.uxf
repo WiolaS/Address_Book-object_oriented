@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>476</x>
-      <y>35</y>
+      <x>357</x>
+      <y>0</y>
       <w>231</w>
-      <h>189</h>
+      <h>238</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
@@ -26,14 +26,18 @@
 + dodajAdresata() void
 + wyswietlWszystkichAdresatow() void
 + czyUzytkownikJestZalogowany() bool
++ usunAdresata(): void 
++ edytujAdresata(): void
++ wyszukajAdresatowPoImieniu(): void
++ wyszukajAdresatowPoNazwisku(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>448</x>
-      <y>231</y>
+      <x>329</x>
+      <y>245</y>
       <w>140</w>
       <h>105</h>
     </coordinates>
@@ -47,10 +51,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>357</x>
-      <y>343</y>
+      <x>238</x>
+      <y>357</y>
       <w>231</w>
-      <h>196</h>
+      <h>203</h>
     </coordinates>
     <panel_attributes>UzytkownikMenedzer
 --
@@ -79,10 +83,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>217</x>
-      <y>546</y>
+      <x>98</x>
+      <y>567</y>
       <w>371</w>
-      <h>161</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
@@ -105,10 +109,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>406</x>
-      <y>714</y>
+      <x>287</x>
+      <y>784</y>
       <w>378</w>
-      <h>140</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 --
@@ -117,20 +121,22 @@
 + wczytajZnak(): char
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale(): string
 + konwersjaStringNaInt(): intiger
-
-+ czyPlikJestPusty: bool
++ wczytajLiczbeCalkowita(): intiger
 
 + wybierzOpcjeZMenuGlownego(): char
-+ wybierzOpcjeZMenuUzytkownika(): char</panel_attributes>
++ wybierzOpcjeZMenuUzytkownika(): char
++ wybierzOpcjeZMenuEdycja(): char
+
++ czyPlikJestPusty: bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>595</x>
-      <y>546</y>
+      <x>476</x>
+      <y>567</y>
       <w>364</w>
-      <h>161</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
@@ -147,6 +153,11 @@
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): vector &lt;Adresat&gt;
 + dopiszAdresataDoPliku(): bool
 + pobierzIdOstatniegoAdresata(): intiger
++ edytujLubUsunZPlikuWybranegoAdresata(): void
++ zapiszDoPlikuTymczasowiAdresaci(): void
++ usunPlik(): void
++ zmienNazwePliku(): void
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -154,10 +165,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>595</x>
-      <y>343</y>
+      <x>476</x>
+      <y>357</y>
       <w>231</w>
-      <h>196</h>
+      <h>203</h>
     </coordinates>
     <panel_attributes>AdresatMenedzer
 --
@@ -171,7 +182,12 @@
 - wyswietlDaneAdresata(): void
 + dodajAdresata(): intiger
 + wyswietlWszystkichAdresatow: void
-
++ usunAdresata(): intiger
++ int podajIdWybranegoAdresata();
++ void edytujAdresata(): void 
++ void wyszukajAdresatowPoImieniu(): void
++ void wyszukajAdresatowPoNazwisku(): void
++ void wyswietlIloscWyszukanychAdresatow(): void
 
 
 
@@ -181,8 +197,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>595</x>
-      <y>231</y>
+      <x>476</x>
+      <y>245</y>
       <w>140</w>
       <h>105</h>
     </coordinates>
