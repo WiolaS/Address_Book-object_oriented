@@ -7,7 +7,8 @@ using namespace std;
 
 
 int main() {
-    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt", "TymczasowiAdresaci.txt");
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt", "TymczasowiAdresaci.txt");
+
     char wybor;
 
     while (true) {
@@ -63,29 +64,4 @@ int main() {
     return 0;
 
 }
-
-
-
-
-
-    /* KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt");
-     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-     ksiazkaAdresowa.rejestracjaUzytkownika();
-     ksiazkaAdresowa.rejestracjaUzytkownika();
-
-     ksiazkaAdresowa.logowanieUzytkownika();
-     ksiazkaAdresowa.dodajAdresata();
-     ksiazkaAdresowa.dodajAdresata();
-     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-     ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-     ksiazkaAdresowa.wylogujUzytkownika();
-     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-
-     ksiazkaAdresowa.logowanieUzytkownika();
-     ksiazkaAdresowa.dodajAdresata();
-     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-     ksiazkaAdresowa.wylogujUzytkownika();*/
-
-
 
