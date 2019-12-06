@@ -3,6 +3,7 @@
 #include <iostream>
 #include "UzytkownikMenedzer.h"
 #include "AdresatMenedzer.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
@@ -10,12 +11,11 @@ class KsiazkaAdresowa {
 
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer *adresatMenedzer;
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
-    const string NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI;
+    PlikTekstowy plikTekstowy;
 
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami, string nazwaTymczasowegoPlikuZAdresatami)
-    : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami), NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI(nazwaTymczasowegoPlikuZAdresatami) {
+    : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), plikTekstowy( nazwaPlikuZAdresatami, nazwaTymczasowegoPlikuZAdresatami) {
         adresatMenedzer = NULL;
     };
 

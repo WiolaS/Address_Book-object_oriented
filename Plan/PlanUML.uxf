@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>357</x>
+      <x>336</x>
       <y>0</y>
       <w>231</w>
       <h>238</h>
@@ -13,7 +13,7 @@
 --
 - uzytkownikMenedzer: UzytkownikMenedzer
 - adresatMenedzer: AdresatMenedzer
-- NAZWA_PLIKU_Z_ADRESATAMI: const string
+- plikTekstowy: PlikTekstowy
 
 --
 + &lt;constructor&gt; KsiazkaAdresowa(): void
@@ -36,7 +36,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>329</x>
+      <x>308</x>
       <y>245</y>
       <w>140</w>
       <h>105</h>
@@ -51,7 +51,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>238</x>
+      <x>217</x>
       <y>357</y>
       <w>231</w>
       <h>203</h>
@@ -83,16 +83,14 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
+      <x>77</x>
       <y>567</y>
       <w>371</w>
       <h>210</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
-- NAZWA_PLIKU_Z_UZYTKOWNIKAMI: string
 
---
 + &lt;construct&gt; PlikZUzytkownikami()
 - pobierzDaneUzytkownika(): Uzytkownik
 - zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): string
@@ -109,10 +107,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>287</x>
-      <y>784</y>
-      <w>378</w>
-      <h>168</h>
+      <x>623</x>
+      <y>0</y>
+      <w>273</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 --
@@ -126,21 +124,19 @@
 + wybierzOpcjeZMenuGlownego(): char
 + wybierzOpcjeZMenuUzytkownika(): char
 + wybierzOpcjeZMenuEdycja(): char
-
-+ czyPlikJestPusty: bool</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>476</x>
+      <x>455</x>
       <y>567</y>
       <w>364</w>
       <h>210</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
-- NAZWA_PLIKU_Z_ADRESATAMI: string
 - idOstatniegoAdresata: intiger
 
 --
@@ -165,7 +161,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>476</x>
+      <x>455</x>
       <y>357</y>
       <w>231</w>
       <h>203</h>
@@ -197,7 +193,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>476</x>
+      <x>455</x>
       <y>245</y>
       <w>140</w>
       <h>105</h>
@@ -211,6 +207,28 @@
 - numerTelefonu: string
 - email: string
 - adres: string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>623</x>
+      <y>147</y>
+      <w>273</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>PlikTekstowy
+--
+- NAZWA_PLIKU: string
+- NAZWA_TYMCZASOWEGO_PLIKU:string
+
+--
++ &lt;constructor&gt; PlikTekstowy()
++ &lt;constructor&gt; PlikTekstowy()
++ pobierzNazwePliku(): string
++ pobierzNazweTymczasowegoPliku(): string
++ czyPlikJestPusty(): bool
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

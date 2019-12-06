@@ -16,8 +16,6 @@ public:
     static int konwersjaStringNaInt(string liczba);
     static int wczytajLiczbeCalkowita();
 
-    static bool czyPlikJestPusty(fstream &plikTekstowy);
-
     static char wybierzOpcjeZMenuGlownego();
     static char wybierzOpcjeZMenuUzytkownika();
     static char wybierzOpcjeZMenuEdycja();

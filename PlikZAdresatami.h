@@ -3,13 +3,11 @@
 #include <iostream>
 #include <vector>
 #include "Adresat.h"
-
+#include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikZAdresatami {
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
-    const string NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI;
+class PlikZAdresatami : public PlikTekstowy {
     int idOstatniegoAdresata;
 
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
@@ -20,8 +18,7 @@ class PlikZAdresatami {
 
 
 public:
-    PlikZAdresatami(string nazwaPlikuZAdresatami, string nazwaTymczasowegoPlikuZAdresatami)
-    : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami), NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI(nazwaTymczasowegoPlikuZAdresatami) {
+     PlikZAdresatami(string nazwaPlikuZAdresatami, string nazwaTymczasowegoPlikuZAdresatami): PlikTekstowy(nazwaPlikuZAdresatami, nazwaTymczasowegoPlikuZAdresatami) {
         idOstatniegoAdresata = 0;
     };
 

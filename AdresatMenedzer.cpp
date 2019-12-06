@@ -5,11 +5,6 @@
 
 using namespace std;
 
-/*int AdresatMenedzer::pobierzIdOstatniegoAdresata(int idZalogowanegoUzytkownika) {
-    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-    adresaci = plikZAdresatami.pobierzAdresatow();
-    return idOstatniegoAdresata;
-}*/
 
 int AdresatMenedzer::dodajAdresata() {
     Adresat adresat;
